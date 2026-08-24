@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { BadgeCheck, PhoneCall, ShieldCheck, Heart } from "lucide-react";
 
@@ -7,7 +8,7 @@ import { CAUSE_PACKAGES } from "@/lib/constants";
 import { BankAccountsHub } from "@/components/donate/bank-accounts";
 import { useLanguage } from "@/context/language-context";
 
-export default function DonatePage() {
+function DonateContent() {
   const searchParams = useSearchParams();
   const causeId = searchParams.get("cause") || "";
   const selectedCause = CAUSE_PACKAGES.find((c) => c.id === causeId);
@@ -98,6 +99,20 @@ export default function DonatePage() {
         ))}
       </div>
     </div>
+  );
+}
+
+export default function DonatePage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="section section-y flex min-h-[50vh] items-center justify-center text-sm text-muted-foreground">
+          Loading donation details...
+        </div>
+      }
+    >
+      <DonateContent />
+    </Suspense>
   );
 }
 
