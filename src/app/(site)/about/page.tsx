@@ -210,11 +210,11 @@ export default function AboutPage() {
               ? "Obtenez nos coordonnées bancaires vérifiées en France, au Pakistan ou aux USA et effectuez directement votre don."
               : "Get our verified bank accounts in France, Pakistan, or the USA and transfer your Zakat or Sadqah directly."}
           </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <Button asChild size="lg" className="bg-emerald-800 hover:bg-emerald-900 text-white font-semibold">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 w-full">
+            <Button asChild size="lg" className="w-full sm:w-auto bg-emerald-800 hover:bg-emerald-900 text-white font-semibold">
               <Link href="/donate">{lang === "fr" ? "Voir les Coordonnées Bancaires" : "View Bank Details"}</Link>
             </Button>
-            <Button asChild size="lg" variant="outline">
+            <Button asChild size="lg" variant="outline" className="w-full sm:w-auto">
               <Link href="/#causes">{lang === "fr" ? "Découvrir tous les Projets" : "Browse All Appeals"}</Link>
             </Button>
           </div>

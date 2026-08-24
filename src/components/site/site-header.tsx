@@ -21,10 +21,10 @@ import { SITE } from "@/lib/constants";
 
 const NAV = [
   { href: "/", labelEn: "Home", labelFr: "Accueil" },
-  { href: "/#causes", labelEn: "Causes & Appeals", labelFr: "Nos Projets" },
-  { href: "/#gallery", labelEn: "Work Done", labelFr: "Nos Actions" },
-  { href: "/donate", labelEn: "Bank Accounts & Donate", labelFr: "Faire un Don" },
-  { href: "/about", labelEn: "About Foundation", labelFr: "À Propos" },
+  { href: "/#causes", labelEn: "Causes", labelFr: "Projets" },
+  { href: "/#gallery", labelEn: "Work", labelFr: "Actions" },
+  { href: "/donate", labelEn: "Donate", labelFr: "Don" },
+  { href: "/about", labelEn: "About", labelFr: "À Propos" },
 ] as const;
 
 export function SiteHeader() {
@@ -39,8 +39,8 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-md">
       {/* Top Banner Bar */}
       <div className="bg-emerald-900 text-emerald-100 text-xs py-1.5 px-4">
-        <div className="section flex flex-wrap items-center justify-between gap-2">
-          <p className="flex items-center gap-2 font-medium tracking-wide">
+        <div className="section flex flex-col sm:flex-row flex-wrap items-center justify-center sm:justify-between gap-2 text-center sm:text-left">
+          <p className="flex flex-wrap items-center justify-center sm:justify-start gap-2 font-medium tracking-wide">
             <span className="bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded text-[11px] font-semibold">
               {lang === "fr" ? `Depuis ${SITE.since}` : `Since ${SITE.since}`}
             </span>
@@ -48,9 +48,9 @@ export function SiteHeader() {
               {SITE.tagline[lang]}
             </span>
           </p>
-          <div className="flex items-center gap-4 text-[11px]">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[11px] w-full sm:w-auto">
             <LanguageSwitcher />
-            <span className="text-emerald-700">|</span>
+            <span className="hidden sm:inline text-emerald-700">|</span>
             <a
               href={SITE.contacts.france.whatsapp}
               target="_blank"
@@ -60,7 +60,7 @@ export function SiteHeader() {
               <PhoneCall className="size-3 text-amber-400" />
               <span>FR: {SITE.contacts.france.displayPhone}</span>
             </a>
-            <span className="text-emerald-700">|</span>
+            <span className="hidden sm:inline text-emerald-700">|</span>
             <a
               href={SITE.contacts.pakistan.whatsapp}
               target="_blank"
@@ -75,7 +75,7 @@ export function SiteHeader() {
       </div>
 
       {/* Main Navigation */}
-      <div className="section flex h-20 items-center justify-between gap-4">
+      <div className="section flex h-16 sm:h-20 items-center justify-between gap-2 sm:gap-4">
         <Logo />
 
         <nav aria-label="Main" className="hidden items-center gap-1 lg:flex">
@@ -89,14 +89,15 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <Button
             asChild
-            className="bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600 text-white font-semibold shadow-md transition-all duration-200 hover:shadow-lg active:scale-[0.98]"
+            size="sm"
+            className="bg-gradient-to-r from-amber-600 to-amber-500 hover:from-amber-700 hover:to-amber-600 text-white font-semibold shadow-md transition-all duration-200 hover:shadow-lg active:scale-[0.98] h-8 px-3 sm:h-10 sm:px-4 text-xs sm:text-sm rounded-full sm:rounded-md"
           >
-            <Link href="/donate" className="flex items-center gap-2">
-              <Heart className="size-4 fill-white/20 text-white animate-pulse" />
-              <span>{lang === "fr" ? "Faire un Don" : "Donate Now"}</span>
+            <Link href="/donate" className="flex items-center gap-1.5 sm:gap-2">
+              <Heart className="size-3.5 sm:size-4 fill-white/20 text-white animate-pulse" />
+              <span className="hidden min-[400px]:inline">{lang === "fr" ? "Don" : "Donate"}</span>
             </Link>
           </Button>
 
@@ -122,8 +123,9 @@ export function SiteHeader() {
                   <Link
                     key={item.href}
                     href={item.href}
+                    onClick={() => setOpen(false)}
                     className={cn(
-                      "flex items-center rounded-lg px-4 py-3 text-sm font-medium transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-emerald-950 dark:text-emerald-100",
+                      "flex items-center rounded-lg px-4 py-3 text-base sm:text-sm font-medium transition-colors hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-emerald-950 dark:text-emerald-100",
                       pathname === item.href && "bg-emerald-100/60 dark:bg-emerald-900/40 font-semibold",
                     )}
                   >

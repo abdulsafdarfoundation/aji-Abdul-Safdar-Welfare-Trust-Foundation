@@ -47,7 +47,7 @@ export function WorkGallery() {
           <button
             key={cat.id}
             onClick={() => setActiveCategory(cat.id)}
-            className={`rounded-full px-4 py-1.5 text-xs font-medium transition-all duration-200 cursor-pointer ${
+            className={`rounded-full px-4 py-2 sm:py-1.5 text-xs sm:text-sm font-medium transition-all duration-200 cursor-pointer flex-grow sm:flex-grow-0 text-center ${
               activeCategory === cat.id
                 ? "bg-emerald-800 text-white shadow-sm"
                 : "bg-muted text-muted-foreground hover:bg-emerald-100 dark:hover:bg-emerald-900/40 hover:text-emerald-900 dark:hover:text-emerald-200"

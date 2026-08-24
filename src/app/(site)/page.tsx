@@ -49,11 +49,11 @@ export default function HomePage() {
                 {SITE.description[lang]}
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-2">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-4 pt-2 w-full">
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold shadow-lg text-base h-12 px-6"
+                  className="w-full sm:w-auto bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold shadow-lg text-base h-12 px-6"
                 >
                   <Link href="/donate" className="flex items-center gap-2">
                     <Heart className="size-5 fill-white/20" />
@@ -64,14 +64,14 @@ export default function HomePage() {
                   asChild
                   size="lg"
                   variant="outline"
-                  className="border-emerald-700 bg-emerald-900/60 text-emerald-100 hover:bg-emerald-800 hover:text-white text-base h-12 px-6"
+                  className="w-full sm:w-auto border-emerald-700 bg-emerald-900/60 text-emerald-100 hover:bg-emerald-800 hover:text-white text-base h-12 px-6"
                 >
                   <Link href="#causes">{lang === "fr" ? "Découvrir nos Projets" : "Explore All Appeals"}</Link>
                 </Button>
               </div>
 
               {/* Direct WhatsApp Callouts */}
-              <div className="pt-4 border-t border-emerald-900 flex flex-wrap items-center gap-6 text-xs text-emerald-200">
+              <div className="pt-4 border-t border-emerald-900 flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-4 sm:gap-6 text-xs text-emerald-200">
                 <a
                   href={SITE.contacts.france.whatsapp}
                   target="_blank"
@@ -173,11 +173,11 @@ export default function HomePage() {
                   : "Donate Zakat, Sadqah, Fitrana or General Charity to support families, build drinking water pumps, or feed orphans in rural Sindh & Pakistan."}
               </p>
             </div>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-3 w-full">
               <Button
                 asChild
                 size="lg"
-                className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-base h-12"
+                className="w-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold text-base h-12"
               >
                 <Link href="/donate">{lang === "fr" ? "Voir les Coordonnées Bancaires" : "Get Bank Transfer Details"}</Link>
               </Button>
@@ -185,7 +185,7 @@ export default function HomePage() {
                 href={SITE.contacts.france.whatsapp}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 rounded-lg border border-emerald-600 bg-emerald-900/60 px-4 py-3 text-sm font-semibold text-emerald-100 hover:bg-emerald-800 hover:text-white transition-colors"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-emerald-600 bg-emerald-900/60 px-4 py-3 text-sm font-semibold text-emerald-100 hover:bg-emerald-800 hover:text-white transition-colors"
               >
                 <PhoneCall className="size-4 text-amber-400" />
                 <span>{lang === "fr" ? "Contacter M. Haji Abdul Safdar" : "Contact Mr. Haji Abdul Safdar"}</span>
