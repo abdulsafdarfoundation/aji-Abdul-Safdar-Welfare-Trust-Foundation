@@ -10,7 +10,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
     <div
       aria-label="Language selector"
       className={cn(
-        "inline-flex items-center rounded-full border border-amber-500/30 bg-emerald-950/20 p-0.5 text-xs font-semibold shadow-xs backdrop-blur-xs",
+        "inline-flex items-center rounded-full border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/50 p-0.5 text-xs font-semibold shadow-xs",
         className,
       )}
     >
@@ -18,27 +18,29 @@ export function LanguageSwitcher({ className }: { className?: string }) {
         type="button"
         onClick={() => setLang("en")}
         className={cn(
-          "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 transition-all duration-200 cursor-pointer",
+          "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-all duration-200 cursor-pointer",
           lang === "en"
-            ? "bg-amber-500 text-white shadow-xs"
-            : "text-emerald-200 hover:text-white hover:bg-emerald-900/40",
+            ? "bg-emerald-800 text-white shadow-sm"
+            : "text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60",
         )}
       >
         <span>🇬🇧</span>
-        <span>English</span>
+        <span className="hidden sm:inline">English</span>
+        <span className="sm:hidden">EN</span>
       </button>
       <button
         type="button"
         onClick={() => setLang("fr")}
         className={cn(
-          "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 transition-all duration-200 cursor-pointer",
+          "inline-flex items-center gap-1.5 rounded-full px-3 py-1.5 transition-all duration-200 cursor-pointer",
           lang === "fr"
-            ? "bg-amber-500 text-white shadow-xs"
-            : "text-emerald-200 hover:text-white hover:bg-emerald-900/40",
+            ? "bg-emerald-800 text-white shadow-sm"
+            : "text-emerald-700 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60",
         )}
       >
         <span>🇫🇷</span>
-        <span>Français</span>
+        <span className="hidden sm:inline">Français</span>
+        <span className="sm:hidden">FR</span>
       </button>
     </div>
   );

@@ -45,7 +45,7 @@ export default function AboutPage() {
         <div className="section">
           <div className="max-w-3xl space-y-4">
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-semibold uppercase tracking-wider border border-amber-500/30">
-              {lang === "fr" ? `Fondation Depuis ${SITE.since}` : `Foundation Since ${SITE.since}`}
+              {lang === "fr" ? `Fondation de Bienfaisance` : `Foundation`}
             </span>
             <h1 className="text-4xl sm:text-5xl font-heading font-bold text-white leading-tight">
               {lang === "fr" ? "À Propos de la Fondation Haji Abdul Safdar" : "About Haji Abdul Safdar Foundation"}
@@ -55,8 +55,8 @@ export default function AboutPage() {
             </h2>
             <p className="text-emerald-100/90 text-lg leading-relaxed pt-2">
               {lang === "fr"
-                ? "Dédiée au service de l'humanité avec dignité, transparence et amour depuis 2023. Notre mission repose sur ce principe universel :"
-                : "Dedicated to serving humanity with dignity, transparency, and love since 2023. Our mission is built on the universal principle:"}{" "}
+                ? "Dédiée au service de l'humanité avec dignité, transparence et amour. Notre mission repose sur ce principe universel :"
+                : "Dedicated to serving humanity with dignity, transparency, and love. Our mission is built on the universal principle:"}{" "}
               <strong className="text-amber-300 font-semibold">
                 &quot;{SITE.tagline[lang]}&quot;
               </strong>
@@ -79,8 +79,8 @@ export default function AboutPage() {
 
           <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
             {lang === "fr"
-              ? "La Fondation et Trust Haji Abdul Safdar a été créée en France en 2023 dans le but d'apporter un soulagement aux familles démunies, orphelins et villages isolés au Pakistan (notamment à Tharparkar Sindh)."
-              : "Haji Abdul Safdar Welfare Trust & Foundation was established in France in 2023 with a mission to bring relief to underprivileged families, orphans, and remote communities in Pakistan (specifically Sindh and rural villages)."}
+              ? "La Fondation et Trust Haji Abdul Safdar a été créée en France dans le but d'apporter un soulagement aux familles démunies, orphelins et villages isolés au Pakistan (notamment à Tharparkar Sindh)."
+              : "Haji Abdul Safdar Welfare Trust & Foundation was established in France with a mission to bring relief to underprivileged families, orphans, and remote communities in Pakistan (specifically Sindh and rural villages)."}
           </p>
 
           <div className="space-y-4">
@@ -129,12 +129,12 @@ export default function AboutPage() {
         {/* Logo Card */}
         <div className="flex justify-center">
           <div className="relative overflow-hidden rounded-3xl border-2 border-emerald-800/20 bg-card p-8 shadow-xl text-center space-y-6 max-w-sm">
-            <div className="relative mx-auto size-48 overflow-hidden rounded-full border-4 border-amber-500 bg-emerald-950 p-1 shadow-md">
+            <div className="relative mx-auto size-48 p-1">
               <Image
                 src="/logo/WhatsApp Image 2026-08-17 at 6.36.46 PM.jpeg"
                 alt="Foundation Logo"
                 fill
-                className="object-contain rounded-full"
+                className="object-contain"
               />
             </div>
             <div className="space-y-1">

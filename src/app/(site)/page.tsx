@@ -31,8 +31,8 @@ export default function HomePage() {
                 <Sparkles className="size-3.5" />
                 <span>
                   {lang === "fr"
-                    ? `Fondation de Bienfaisance • Depuis ${SITE.since}`
-                    : `Welfare Trust & Foundation • Since ${SITE.since}`}
+                    ? `Fondation de Bienfaisance`
+                    : `Welfare Trust & Foundation`}
                 </span>
               </div>
 
@@ -95,12 +95,12 @@ export default function HomePage() {
 
             {/* Official Logo & Ad Banner Card */}
             <div className="relative mx-auto w-full max-w-md overflow-hidden rounded-2xl border-2 border-amber-500/30 bg-emerald-900/40 p-6 shadow-2xl backdrop-blur-sm text-center space-y-4">
-              <div className="relative mx-auto size-44 overflow-hidden rounded-full border-4 border-amber-400 bg-emerald-950 p-1 shadow-md">
+              <div className="relative mx-auto size-44 p-1">
                 <Image
                   src="/logo/WhatsApp Image 2026-08-17 at 6.36.46 PM.jpeg"
                   alt="Haji Abdul Safdar Foundation Logo Emblem"
                   fill
-                  className="object-contain rounded-full"
+                  className="object-contain"
                   priority
                 />
               </div>

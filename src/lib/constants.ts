@@ -22,8 +22,7 @@ export const SITE = {
         ? process.env.NEXT_PUBLIC_SITE_URL 
         : `https://${process.env.NEXT_PUBLIC_SITE_URL}`)
     : "http://localhost:3000",
-  email: "contact@hajiabdulsafdar.org",
-  since: "2023",
+  email: "contact@hasffoundation.com",
 
   contacts: {
     france: {

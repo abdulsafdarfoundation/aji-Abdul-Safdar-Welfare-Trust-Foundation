@@ -30,7 +30,7 @@ export function SiteFooter() {
               France, Pakistan & USA
             </span>
             <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-800/60 text-emerald-200 text-xs font-medium">
-              {lang === "fr" ? `Fondation enregistrée depuis ${SITE.since}` : `Registered Charity Since ${SITE.since}`}
+              {lang === "fr" ? `Fondation enregistrée` : `Registered Charity`}
             </span>
           </div>
         </div>

@@ -22,13 +22,13 @@ export function Logo({
         className,
       )}
     >
-      <div className="relative shrink-0 overflow-hidden rounded-full border border-amber-500/30 bg-emerald-950/10 p-0.5 shadow-sm transition-transform duration-200 group-hover:scale-105">
+      <div className="relative shrink-0 transition-transform duration-200 group-hover:scale-105">
         <Image
           src="/logo/WhatsApp Image 2026-08-17 at 6.36.46 PM.jpeg"
           alt="Haji Abdul Safdar Foundation Logo"
           width={logoDimensions}
           height={logoDimensions}
-          className="h-auto w-auto object-contain rounded-full"
+          className="h-auto w-auto object-contain"
           priority
         />
       </div>

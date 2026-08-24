@@ -37,43 +37,6 @@ export function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur-md">
-      {/* Top Banner Bar */}
-      <div className="bg-emerald-900 text-emerald-100 text-xs py-1.5 px-4">
-        <div className="section flex flex-col sm:flex-row flex-wrap items-center justify-center sm:justify-between gap-2 text-center sm:text-left">
-          <p className="flex flex-wrap items-center justify-center sm:justify-start gap-2 font-medium tracking-wide">
-            <span className="bg-amber-500/20 text-amber-300 px-2 py-0.5 rounded text-[11px] font-semibold">
-              {lang === "fr" ? `Depuis ${SITE.since}` : `Since ${SITE.since}`}
-            </span>
-            <span className="hidden sm:inline text-amber-200">
-              {SITE.tagline[lang]}
-            </span>
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-[11px] w-full sm:w-auto">
-            <LanguageSwitcher />
-            <span className="hidden sm:inline text-emerald-700">|</span>
-            <a
-              href={SITE.contacts.france.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-emerald-200 hover:text-white transition-colors"
-            >
-              <PhoneCall className="size-3 text-amber-400" />
-              <span>FR: {SITE.contacts.france.displayPhone}</span>
-            </a>
-            <span className="hidden sm:inline text-emerald-700">|</span>
-            <a
-              href={SITE.contacts.pakistan.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 text-emerald-200 hover:text-white transition-colors"
-            >
-              <PhoneCall className="size-3 text-amber-400" />
-              <span>PK: {SITE.contacts.pakistan.displayPhone}</span>
-            </a>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navigation */}
       <div className="section flex h-16 sm:h-20 items-center justify-between gap-2 sm:gap-4">
         <Logo />
@@ -89,7 +52,10 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="flex items-center gap-2 sm:gap-3">
+        <div className="flex items-center gap-2 sm:gap-4">
+          <div className="hidden sm:block">
+            <LanguageSwitcher />
+          </div>
           <Button
             asChild
             size="sm"
@@ -133,31 +99,31 @@ export function SiteHeader() {
                   </Link>
                 ))}
                 
-                <div className="mt-6 pt-4 border-t space-y-3">
+                <div className="mt-4 pt-4 border-t space-y-3">
                   <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-2">
                     {lang === "fr" ? "Contact Direct" : "Direct Contact"}
                   </p>
                   <a
-                    href={SITE.contacts.france.whatsapp}
+                    href="https://wa.me/33646817178"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between p-3 rounded-lg border bg-card hover:bg-accent text-xs"
                   >
                     <div>
-                      <p className="font-semibold">{SITE.contacts.france.name} (France)</p>
-                      <p className="text-muted-foreground">{SITE.contacts.france.displayPhone}</p>
+                      <p className="font-semibold">Mr. Haji Abdul Safdar (France)</p>
+                      <p className="text-muted-foreground">+33 6 46 81 71 78</p>
                     </div>
                     <span className="text-emerald-600 font-bold">WhatsApp</span>
                   </a>
                   <a
-                    href={SITE.contacts.pakistan.whatsapp}
+                    href="https://wa.me/923336048001"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between p-3 rounded-lg border bg-card hover:bg-accent text-xs"
                   >
                     <div>
-                      <p className="font-semibold">{SITE.contacts.pakistan.name} (PK)</p>
-                      <p className="text-muted-foreground">{SITE.contacts.pakistan.displayPhone}</p>
+                      <p className="font-semibold">Hafiz Fayyaz Ahmed (PK)</p>
+                      <p className="text-muted-foreground">+92 333 6048001</p>
                     </div>
                     <span className="text-emerald-600 font-bold">WhatsApp</span>
                   </a>

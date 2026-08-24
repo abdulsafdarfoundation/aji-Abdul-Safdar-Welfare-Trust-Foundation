@@ -1,14 +1,25 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { GALLERY_IMAGES } from "@/lib/constants";
-import { Camera } from "lucide-react";
+import { Camera, Loader2, Play } from "lucide-react";
 import { useLanguage } from "@/context/language-context";
+import { getGalleryMedia } from "@/app/actions";
 
 export function WorkGallery() {
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const [media, setMedia] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
   const { lang } = useLanguage();
+
+  useEffect(() => {
+    async function loadMedia() {
+      const data = await getGalleryMedia();
+      setMedia(data);
+      setLoading(false);
+    }
+    loadMedia();
+  }, []);
 
   const categories = [
     { id: "All", labelEn: "All Work", labelFr: "Toutes les Actions" },
@@ -21,8 +32,8 @@ export function WorkGallery() {
 
   const filteredImages =
     activeCategory === "All"
-      ? GALLERY_IMAGES
-      : GALLERY_IMAGES.filter((img) => img.categoryEn === activeCategory);
+      ? media
+      : media.filter((img) => img.categoryEn === activeCategory);
 
   return (
     <div className="space-y-8" id="gallery">
@@ -59,7 +70,12 @@ export function WorkGallery() {
       </div>
 
       {/* Grid */}
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {loading ? (
+        <div className="flex items-center justify-center py-12">
+          <Loader2 className="size-8 animate-spin text-emerald-600" />
+        </div>
+      ) : (
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {filteredImages.map((img, idx) => {
           const title = lang === "fr" ? img.titleFr : img.titleEn;
           const category = lang === "fr" ? img.categoryFr : img.categoryEn;
@@ -70,26 +86,41 @@ export function WorkGallery() {
               className="group relative overflow-hidden rounded-xl border bg-card shadow-xs transition-all duration-300 hover:shadow-md"
             >
               <div className="relative h-64 w-full overflow-hidden bg-muted">
-                <Image
-                  src={img.src}
-                  alt={title}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity" />
+                {img.type === "video" ? (
+                  <video
+                    src={img.src}
+                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    controls
+                    preload="metadata"
+                  />
+                ) : (
+                  <Image
+                    src={img.src}
+                    alt={title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                )}
                 
-                <div className="absolute bottom-3 left-3 right-3 text-white">
-                  <span className="inline-block rounded-md bg-amber-500/80 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider mb-1">
-                    {category}
-                  </span>
+                {img.type !== "video" && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90 transition-opacity pointer-events-none" />
+                )}
+                
+                <div className="absolute bottom-3 left-3 right-3 text-white pointer-events-none">
+                  {img.type === "video" && (
+                    <span className="inline-block rounded-md bg-emerald-600/90 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider mb-1 flex items-center gap-1 w-fit">
+                      <Play className="size-3" /> Vidéo
+                    </span>
+                  )}
                   <h4 className="font-semibold text-sm drop-shadow-sm">{title}</h4>
                 </div>
               </div>
             </div>
           );
         })}
-      </div>
+        </div>
+      )}
     </div>
   );
 }
