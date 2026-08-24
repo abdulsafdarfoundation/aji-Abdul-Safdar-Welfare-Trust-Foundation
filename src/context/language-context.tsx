@@ -20,6 +20,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const saved = localStorage.getItem("haji_safdar_lang") as Language;
     if (saved === "en" || saved === "fr") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
       setLangState(saved);
     }
   }, []);

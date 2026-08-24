@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
-import { SITE } from "@/lib/constants";
 
 export function Logo({
   className,

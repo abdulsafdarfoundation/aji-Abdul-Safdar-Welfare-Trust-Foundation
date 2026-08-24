@@ -1,6 +1,6 @@
 "use client";
 
-import { useLanguage, Language } from "@/context/language-context";
+import { useLanguage } from "@/context/language-context";
 import { cn } from "@/lib/utils";
 
 export function LanguageSwitcher({ className }: { className?: string }) {

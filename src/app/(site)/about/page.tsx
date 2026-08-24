@@ -58,7 +58,7 @@ export default function AboutPage() {
                 ? "Dédiée au service de l'humanité avec dignité, transparence et amour depuis 2023. Notre mission repose sur ce principe universel :"
                 : "Dedicated to serving humanity with dignity, transparency, and love since 2023. Our mission is built on the universal principle:"}{" "}
               <strong className="text-amber-300 font-semibold">
-                "{SITE.tagline[lang]}"
+                &quot;{SITE.tagline[lang]}&quot;
               </strong>
             </p>
           </div>

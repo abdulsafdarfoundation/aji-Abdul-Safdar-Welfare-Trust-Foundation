@@ -32,6 +32,7 @@ export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const { lang } = useLanguage();
 
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setOpen(false), [pathname]);
 
   return (

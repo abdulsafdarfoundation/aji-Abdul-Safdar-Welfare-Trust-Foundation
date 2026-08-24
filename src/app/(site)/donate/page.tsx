@@ -3,7 +3,7 @@
 import { useSearchParams } from "next/navigation";
 import { BadgeCheck, PhoneCall, ShieldCheck, Heart } from "lucide-react";
 
-import { SITE, CAUSE_PACKAGES } from "@/lib/constants";
+import { CAUSE_PACKAGES } from "@/lib/constants";
 import { BankAccountsHub } from "@/components/donate/bank-accounts";
 import { useLanguage } from "@/context/language-context";
 
