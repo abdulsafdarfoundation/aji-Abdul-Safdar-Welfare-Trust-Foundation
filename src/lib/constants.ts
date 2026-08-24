@@ -17,7 +17,11 @@ export const SITE = {
     en: "Providing clean solar drinking water in Tharparkar Sindh, monthly ration packages, community meal distribution, orphan girl marriage support, mosque/madrasa construction, and orphan education.",
     fr: "Fourniture d'eau potable solaire à Tharparkar Sindh, colis alimentaires mensuels, distribution de repas, soutien au mariage d'orphelines, construction de mosquées et éducation d'orphelins.",
   },
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL 
+    ? (process.env.NEXT_PUBLIC_SITE_URL.startsWith("http") 
+        ? process.env.NEXT_PUBLIC_SITE_URL 
+        : `https://${process.env.NEXT_PUBLIC_SITE_URL}`)
+    : "http://localhost:3000",
   email: "contact@hajiabdulsafdar.org",
   since: "2023",
 
