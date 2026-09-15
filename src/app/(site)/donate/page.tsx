@@ -27,8 +27,8 @@ function DonateContent() {
     },
     {
       icon: PhoneCall,
-      textEn: "Direct contact line with Mr. Haji Abdul Safdar & Hafiz Fayyaz Ahmed.",
-      textFr: "Ligne directe avec M. Haji Abdul Safdar & Hafiz Fayyaz Ahmed.",
+      textEn: "Direct contact line with Mr. Haji Abdul Safdar & Hafiz Faiz Ahmed.",
+      textFr: "Ligne directe avec M. Haji Abdul Safdar & Hafiz Faiz Ahmed.",
     },
   ];
 
@@ -46,8 +46,8 @@ function DonateContent() {
         <p className="text-muted-foreground text-base leading-relaxed">
           {selectedCause
             ? lang === "fr"
-              ? `Projet sélectionné : « ${selectedCause.titleFr} » (€${selectedCause.priceEuro}). Copiez les coordonnées bancaires ci-dessous pour faire le virement.`
-              : `You selected: “${selectedCause.titleEn}” (€${selectedCause.priceEuro}). Please copy the bank IBAN below to transfer.`
+              ? `Projet sélectionné : « ${selectedCause.titleFr} ». Copiez les coordonnées bancaires ci-dessous pour faire le virement.`
+              : `You selected: “${selectedCause.titleEn}”. Please copy the bank IBAN below to transfer.`
             : lang === "fr"
             ? "Sélectionnez l'un de nos comptes bancaires officiels en France, au Pakistan ou aux USA ci-dessous pour faire votre don."
             : "Select any of our official bank accounts in France, Pakistan, or the USA below to transfer your donation directly."}
@@ -57,16 +57,16 @@ function DonateContent() {
       {/* Main Bank Hub */}
       <BankAccountsHub />
 
-      {/* Cause Price Packages Quick Reference */}
+      {/* Supported Appeals Quick Reference */}
       <div className="rounded-2xl border-2 border-emerald-800/10 bg-card p-6 sm:p-8 space-y-6">
         <div>
           <h3 className="font-heading text-xl font-bold text-foreground">
-            {lang === "fr" ? "Guide Tarifaire des Projets" : "Appeal Packages Quick Reference"}
+            {lang === "fr" ? "Aperçu de nos Projets Principaux" : "Supported Appeals & Key Causes"}
           </h3>
           <p className="text-xs text-muted-foreground mt-1">
             {lang === "fr"
-              ? "Montants indicatifs pour parrainer un projet spécifique :"
-              : "Amounts to reference when sending transfers for specific causes:"}
+              ? "Projets et causes que vous pouvez soutenir lors de vos virements :"
+              : "Causes you can reference when transferring your Zakat or Sadqah:"}
           </p>
         </div>
 
@@ -79,10 +79,8 @@ function DonateContent() {
               <div key={pkg.id} className="rounded-xl border bg-muted/40 p-4 space-y-2">
                 <div className="flex items-center justify-between font-bold">
                   <span className="text-foreground">{title}</span>
-                  <span className="text-amber-600 font-mono text-sm">€{pkg.priceEuro}</span>
                 </div>
-                <p className="text-xs text-muted-foreground">{category}</p>
-                <p className="text-[11px] text-muted-foreground font-mono">Approx Rs. {pkg.pricePkr.toLocaleString()}</p>
+                <p className="text-xs text-emerald-700 dark:text-emerald-400 font-medium">{category}</p>
               </div>
             );
           })}

@@ -66,29 +66,28 @@ function CauseCard({ item }: { item: CausePackage }) {
       )}
 
       {/* Image Preview */}
-      <div className="relative h-52 w-full overflow-hidden bg-emerald-950/10">
+      <div className="relative aspect-[4/3] w-full overflow-hidden bg-emerald-950">
+        <Image
+          src={item.image}
+          alt=""
+          fill
+          aria-hidden="true"
+          className="object-cover blur-xl opacity-40 scale-125 select-none pointer-events-none"
+        />
         <Image
           src={item.image}
           alt={title}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-contain p-1.5 transition-transform duration-500 group-hover:scale-105 motion-reduce:transform-none"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/90 via-black/20 to-transparent pointer-events-none" />
         
-        {/* Pricing overlay tag */}
-        <div className="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white">
-          <span className="rounded-md bg-emerald-900/90 backdrop-blur-xs px-2.5 py-1 text-xs font-semibold">
+        {/* Category overlay tag */}
+        <div className="absolute bottom-3 left-3 flex items-center text-white z-10 pointer-events-none">
+          <span className="rounded-md bg-emerald-900/90 backdrop-blur-xs px-2.5 py-1 text-xs font-semibold shadow-xs">
             {category}
           </span>
-          <div className="text-right">
-            <span className="text-xl font-extrabold text-amber-300 drop-shadow-sm font-mono">
-              €{item.priceEuro}
-            </span>
-            <span className="text-[11px] text-emerald-100/90 block font-mono">
-              (Approx Rs. {item.pricePkr.toLocaleString()})
-            </span>
-          </div>
         </div>
       </div>
 

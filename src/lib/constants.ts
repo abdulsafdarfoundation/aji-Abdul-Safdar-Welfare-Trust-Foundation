@@ -17,10 +17,10 @@ export const SITE = {
     en: "Providing clean solar drinking water in Tharparkar Sindh, monthly ration packages, community meal distribution, orphan girl marriage support, mosque/madrasa construction, and orphan education.",
     fr: "Fourniture d'eau potable solaire à Tharparkar Sindh, colis alimentaires mensuels, distribution de repas, soutien au mariage d'orphelines, construction de mosquées et éducation d'orphelins.",
   },
-  url: process.env.NEXT_PUBLIC_SITE_URL 
-    ? (process.env.NEXT_PUBLIC_SITE_URL.startsWith("http") 
-        ? process.env.NEXT_PUBLIC_SITE_URL 
-        : `https://${process.env.NEXT_PUBLIC_SITE_URL}`)
+  url: process.env.NEXT_PUBLIC_SITE_URL
+    ? (process.env.NEXT_PUBLIC_SITE_URL.startsWith("http")
+      ? process.env.NEXT_PUBLIC_SITE_URL
+      : `https://${process.env.NEXT_PUBLIC_SITE_URL}`)
     : "http://localhost:3000",
   email: "contact@hasffoundation.com",
 
@@ -33,7 +33,7 @@ export const SITE = {
       country: "France",
     },
     pakistan: {
-      name: "Hafiz Fayyaz Ahmed (Fiaz Ahmad)",
+      name: "Hafiz Faiz Ahmed (Fiaz Ahmad)",
       phone: "+923336048001",
       displayPhone: "+92 333 6048001",
       whatsapp: "https://wa.me/923336048001",
@@ -101,7 +101,7 @@ export const CAUSE_PACKAGES: CausePackage[] = [
     pricePkr: 140000,
     descriptionEn: "Clean, sustainable solar-powered drinking water pumps for thirsty desert villages in Tharparkar (Sindh).",
     descriptionFr: "Pompes à eau potables solaires durables pour les villages assoiffés du désert de Tharparkar (Sindh).",
-    image: "/ads/WhatsApp Image 2026-08-17 at 6.36.04 PM.jpeg",
+    image: "/ads/Appeals/Solar Water Project .jpeg",
     categoryEn: "Clean Water",
     categoryFr: "Eau Potable",
     popular: true,
@@ -114,7 +114,7 @@ export const CAUSE_PACKAGES: CausePackage[] = [
     pricePkr: 9000,
     descriptionEn: "Provides 1 month of essential grocery staples (flour, rice, oil, lentils, sugar, tea) to a needy family.",
     descriptionFr: "Fournit 1 mois de denrées alimentaires essentielles (farine, riz, huile, lentilles, sucre, thé) à une famille dans le besoin.",
-    image: "/images/WhatsApp Image 2026-08-17 at 6.36.40 PM.jpeg",
+    image: "/ads/Appeals/Monthly Rashan.jpeg",
     categoryEn: "Food Security",
     categoryFr: "Sécurité Alimentaire",
     popular: true,
@@ -125,58 +125,58 @@ export const CAUSE_PACKAGES: CausePackage[] = [
     titleFr: "Mariage de Jeunes Filles Orphelines",
     priceEuro: 615,
     pricePkr: 185000,
-    descriptionEn: "Financial support, basic household essentials, dowry support, and dignity for orphan and underprivileged brides.",
+    descriptionEn: "Financial support, basic household essentials, marriage reception support, and dignity for orphan brides.",
     descriptionFr: "Soutien financier, équipements ménagers essentiels et dignité pour les mariées orphelines et démunies.",
-    image: "/ads/WhatsApp Image 2026-08-17 at 6.36.44 PM.jpeg",
+    image: "/ads/Appeals/Orphan Girls Marriage Reception.jpeg",
     categoryEn: "Social Welfare",
     categoryFr: "Action Sociale",
     popular: true,
   },
   {
     id: "community-meal",
-    titleEn: "Monthly Community Meal Distribution",
-    titleFr: "Distribution Mensuelle de Repas Communautaires",
+    titleEn: "Monthly Langar (Community Meals)",
+    titleFr: "Langar Mensuel (Repas Communautaires)",
     priceEuro: 185,
     pricePkr: 56000,
     descriptionEn: "Serves hundreds of daily workers, orphans, and poor individuals with hot, wholesome cooked meals.",
     descriptionFr: "Offre des repas chauds et nutritifs à des centaines de travailleurs quotidiens, orphelins et personnes démunies.",
-    image: "/ads/WhatsApp Image 2026-08-17 at 6.36.04 PM.jpeg",
+    image: "/ads/Appeals/Monthly Langar.jpeg",
     categoryEn: "Food Security",
     categoryFr: "Sécurité Alimentaire",
   },
   {
     id: "mosque-construction",
-    titleEn: "Mosque & Madrasa Construction",
-    titleFr: "Construction de Mosquée et Madrassa",
+    titleEn: "Mosque & School Construction",
+    titleFr: "Construction de Mosquée et École",
     priceEuro: 500,
     pricePkr: 150000,
-    descriptionEn: "Building brick structures for rural mosques and Quran education centers in underdeveloped villages.",
-    descriptionFr: "Construction d'édifices en briques pour les mosquées rurales et centres d'enseignement dans les villages reculés.",
-    image: "/images/WhatsApp Image 2026-08-17 at 6.36.07 PM.jpeg",
+    descriptionEn: "Building brick structures for rural mosques and school facilities in underdeveloped villages.",
+    descriptionFr: "Construction d'édifices en briques pour les mosquées rurales et écoles dans les villages reculés.",
+    image: "/ads/Appeals/mosque and school.jpeg",
     categoryEn: "Religious & Education",
     categoryFr: "Éducation & Édifices",
   },
   {
     id: "orphan-education",
-    titleEn: "School & Education Support for Orphans",
-    titleFr: "Soutien Scolaire et Éducatif pour Orphelins",
+    titleEn: "Religious & School Education",
+    titleFr: "Éducation Religieuse et Scolaire",
     priceEuro: 304,
     pricePkr: 92000,
-    descriptionEn: "Full educational sponsorship covering books, uniform, tuition, and Quranic education for orphan children.",
-    descriptionFr: "Parrainage éducatif complet couvrant livres, uniformes, frais de scolarité et éducation pour enfants orphelins.",
-    image: "/ads/WhatsApp Image 2026-08-17 at 6.36.44 PM.jpeg",
+    descriptionEn: "Full educational sponsorship covering Islamic religious education, school books, uniform, and tuition for orphan children.",
+    descriptionFr: "Parrainage éducatif complet couvrant l'éducation religieuse, livres, uniformes et scolarité pour enfants orphelins.",
+    image: "/ads/Appeals/Religious Education.jpeg",
     categoryEn: "Education",
     categoryFr: "Éducation",
   },
 ];
 
 export const GALLERY_IMAGES = [
-  { src: "/images/WhatsApp Image 2026-08-17 at 6.36.40 PM.jpeg", titleEn: "Ration Bag Distribution", titleFr: "Distribution de Colis Alimentaires", categoryEn: "Ration", categoryFr: "Ration" },
-  { src: "/images/WhatsApp Image 2026-08-17 at 6.36.07 PM.jpeg", titleEn: "Mosque Brick Construction", titleFr: "Construction de Mosquée en Briques", categoryEn: "Mosque", categoryFr: "Mosquée" },
-  { src: "/images/WhatsApp Image 2026-08-17 at 6.37.04 PM.jpeg", titleEn: "Community Food Drive", titleFr: "Distribution de Repas Chauds", categoryEn: "Meal", categoryFr: "Repas" },
-  { src: "/ads/WhatsApp Image 2026-08-17 at 6.36.04 PM.jpeg", titleEn: "Solar Pump Project Thar", titleFr: "Projet de Pompe Solaire à Thar", categoryEn: "Water", categoryFr: "Eau" },
-  { src: "/ads/WhatsApp Image 2026-08-17 at 6.36.44 PM.jpeg", titleEn: "Marriage Support & Ration", titleFr: "Soutien au Mariage et Rations", categoryEn: "Welfare", categoryFr: "Aide Sociale" },
-  { src: "/ads/WhatsApp Image 2026-08-17 at 6.37.31 PM.jpeg", titleEn: "Donation Appeals & Pricing", titleFr: "Appels aux Dons et Projets", categoryEn: "Appeals", categoryFr: "Appels" },
+  { src: "/ads/Appeals/Monthly Rashan.jpeg", titleEn: "Monthly Rashan Distribution", titleFr: "Distribution de Rashan Mensuel", categoryEn: "Ration", categoryFr: "Ration" },
+  { src: "/ads/Appeals/mosque and school.jpeg", titleEn: "Mosque & School Construction", titleFr: "Construction de Mosquée et École", categoryEn: "Mosque", categoryFr: "Mosquée" },
+  { src: "/ads/Appeals/Monthly Langar.jpeg", titleEn: "Monthly Langar (Community Meals)", titleFr: "Langar Mensuel (Repas Communautaires)", categoryEn: "Meal", categoryFr: "Repas" },
+  { src: "/ads/Appeals/Solar Water Project .jpeg", titleEn: "Solar Drinking Water Project", titleFr: "Projet de Pompe Solaire à Eau", categoryEn: "Water", categoryFr: "Eau" },
+  { src: "/ads/Appeals/Orphan Girls Marriage Reception.jpeg", titleEn: "Orphan Girls Marriage Support", titleFr: "Soutien au Mariage d'Orphelines", categoryEn: "Welfare", categoryFr: "Aide Sociale" },
+  { src: "/ads/Appeals/Religious Education.jpeg", titleEn: "Religious & School Education", titleFr: "Éducation Religieuse et Scolaire", categoryEn: "Education", categoryFr: "Éducation" },
 ];
 
 export const CAMPAIGN_CATEGORIES = [

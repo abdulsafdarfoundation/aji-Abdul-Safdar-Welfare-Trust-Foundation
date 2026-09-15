@@ -150,7 +150,7 @@ export function BankAccountsHub() {
             <div>
               <p className="text-muted-foreground">{lang === "fr" ? "Représentant au Pakistan :" : "Contact Representative:"}</p>
               <p className="font-semibold text-foreground">
-                Hafiz Fayyaz Ahmed ({SITE.contacts.pakistan.displayPhone})
+                Hafiz Faiz Ahmed ({SITE.contacts.pakistan.displayPhone})
               </p>
             </div>
           </div>
