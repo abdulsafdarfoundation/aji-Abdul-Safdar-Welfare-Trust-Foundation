@@ -122,7 +122,7 @@ export function SiteHeader() {
                     className="flex items-center justify-between p-3 rounded-lg border bg-card hover:bg-accent text-xs"
                   >
                     <div>
-                      <p className="font-semibold">Hafiz Faiz Ahmed (PK)</p>
+                      <p className="font-semibold">Hafiz Fiaz Ahmed (PK)</p>
                       <p className="text-muted-foreground">+92 333 6048001</p>
                     </div>
                     <span className="text-emerald-600 font-bold">WhatsApp</span>

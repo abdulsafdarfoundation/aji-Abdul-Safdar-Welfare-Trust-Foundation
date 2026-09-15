@@ -27,8 +27,8 @@ function DonateContent() {
     },
     {
       icon: PhoneCall,
-      textEn: "Direct contact line with Mr. Haji Abdul Safdar & Hafiz Faiz Ahmed.",
-      textFr: "Ligne directe avec M. Haji Abdul Safdar & Hafiz Faiz Ahmed.",
+      textEn: "Direct contact line with Mr. Haji Abdul Safdar & Hafiz Fiaz Ahmed.",
+      textFr: "Ligne directe avec M. Haji Abdul Safdar & Hafiz Fiaz Ahmed.",
     },
   ];
 

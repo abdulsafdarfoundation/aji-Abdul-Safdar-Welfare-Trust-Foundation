@@ -18,7 +18,7 @@ const TEAM = [
     flag: "🇫🇷",
   },
   {
-    name: "Hafiz Faiz Ahmed (Fiaz Ahmad)",
+    name: "Hafiz Fiaz Ahmed",
     roleEn: "Field Director & Pakistan Coordinator",
     roleFr: "Directeur de Terrain & Coordinateur Pakistan",
     phone: SITE.contacts.pakistan.displayPhone,

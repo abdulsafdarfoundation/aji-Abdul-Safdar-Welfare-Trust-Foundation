@@ -33,7 +33,7 @@ export const SITE = {
       country: "France",
     },
     pakistan: {
-      name: "Hafiz Faiz Ahmed (Fiaz Ahmad)",
+      name: "Hafiz Fiaz Ahmed",
       phone: "+923336048001",
       displayPhone: "+92 333 6048001",
       whatsapp: "https://wa.me/923336048001",
