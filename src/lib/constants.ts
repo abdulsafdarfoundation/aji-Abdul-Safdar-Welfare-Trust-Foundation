@@ -71,6 +71,10 @@ export const SITE = {
       accountTitle: "ASAD",
       zelleId: "+1 (551) 689-0350",
     },
+    paypal: {
+      accountName: "ABDUL Safdar",
+      qrImage: "/PAYMENT/QRPAYMENT.jpeg",
+    },
   },
 
   currency: "EUR",

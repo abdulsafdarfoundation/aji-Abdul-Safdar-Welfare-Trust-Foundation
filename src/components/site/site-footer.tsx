@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { Mail, PhoneCall, Globe2 } from "lucide-react";
+import Image from "next/image";
+import { Mail, PhoneCall, Globe2, QrCode } from "lucide-react";
 
 import { Logo } from "@/components/site/logo";
 import { SITE } from "@/lib/constants";
@@ -98,6 +99,33 @@ export function SiteFooter() {
               <span>{SITE.email}</span>
             </li>
           </ul>
+
+          {/* PayPal QR Mini */}
+          <div className="pt-4 mt-4 border-t border-emerald-800/40">
+            <Link
+              href="/donate#bank-accounts"
+              className="group flex items-center gap-3 rounded-xl bg-emerald-900/60 hover:bg-emerald-800/60 p-3 transition-colors"
+            >
+              <div className="relative size-14 shrink-0 overflow-hidden rounded-lg border border-emerald-700/50 bg-white">
+                <Image
+                  src={SITE.bankDetails.paypal.qrImage}
+                  alt="PayPal QR Code"
+                  fill
+                  className="object-contain p-0.5"
+                  sizes="56px"
+                />
+              </div>
+              <div className="min-w-0">
+                <p className="text-xs font-semibold text-emerald-100 group-hover:text-white transition-colors flex items-center gap-1.5">
+                  <QrCode className="size-3.5 text-blue-400" />
+                  {lang === "fr" ? "PayPal — Paiement QR" : "PayPal — QR Payment"}
+                </p>
+                <p className="text-[10px] text-emerald-300/70 mt-0.5">
+                  {lang === "fr" ? "Scannez pour faire un don instantané" : "Scan to donate instantly worldwide"}
+                </p>
+              </div>
+            </Link>
+          </div>
         </div>
       </div>
 
