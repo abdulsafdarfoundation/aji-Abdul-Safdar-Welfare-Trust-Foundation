@@ -35,10 +35,20 @@ export function WorkGallery() {
     loadMedia();
   }, []);
 
+  // Deduplicate by src (safety net for any future duplicates slipping through)
+  const uniqueMedia = useMemo(() => {
+    const seen = new Set<string>();
+    return media.filter((item) => {
+      if (seen.has(item.src)) return false;
+      seen.add(item.src);
+      return true;
+    });
+  }, [media]);
+
   // Filter media based on 2 tabs only: "image" or "video"
   const filteredMedia = useMemo(() => {
-    return media.filter((item) => item.type === activeTab);
-  }, [media, activeTab]);
+    return uniqueMedia.filter((item) => item.type === activeTab);
+  }, [uniqueMedia, activeTab]);
 
   const totalPages = Math.ceil(filteredMedia.length / ITEMS_PER_PAGE) || 1;
 
@@ -48,8 +58,8 @@ export function WorkGallery() {
     setCurrentPage(1);
   };
 
-  const imageCount = useMemo(() => media.filter((m) => m.type === "image").length, [media]);
-  const videoCount = useMemo(() => media.filter((m) => m.type === "video").length, [media]);
+  const imageCount = useMemo(() => uniqueMedia.filter((m) => m.type === "image").length, [uniqueMedia]);
+  const videoCount = useMemo(() => uniqueMedia.filter((m) => m.type === "video").length, [uniqueMedia]);
 
   const currentItems = useMemo(() => {
     const start = (currentPage - 1) * ITEMS_PER_PAGE;
