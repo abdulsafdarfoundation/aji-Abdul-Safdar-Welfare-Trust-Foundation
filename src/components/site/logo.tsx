@@ -2,6 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/context/language-context";
+
+const LOGO_EN = "/logo/WhatsApp Image 2026-08-17 at 6.36.46 PM.jpeg";
+const LOGO_FR = "/logo/logo-fr.jpg";
 
 export function Logo({
   className,
@@ -12,7 +16,13 @@ export function Logo({
   href?: string;
   size?: "sm" | "md" | "lg";
 }) {
+  const { lang } = useLanguage();
   const logoDimensions = size === "lg" ? 56 : size === "sm" ? 36 : 44;
+  const logoSrc = lang === "fr" ? LOGO_FR : LOGO_EN;
+  const logoAlt =
+    lang === "fr"
+      ? "حاجی عبدالصفدر ویلفیئر ٹرسٹ اینڈ فاؤنڈیشن فرانس"
+      : "Haji Abdul Safdar Foundation Logo";
 
   return (
     <Link
@@ -24,8 +34,8 @@ export function Logo({
     >
       <div className="relative shrink-0 transition-transform duration-200 group-hover:scale-105">
         <Image
-          src="/logo/WhatsApp Image 2026-08-17 at 6.36.46 PM.jpeg"
-          alt="Haji Abdul Safdar Foundation Logo"
+          src={logoSrc}
+          alt={logoAlt}
           width={logoDimensions}
           height={logoDimensions}
           className="h-auto w-auto object-contain"
