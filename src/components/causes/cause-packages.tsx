@@ -1,15 +1,25 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Sparkles, Heart, ArrowRight } from "lucide-react";
 import { CAUSE_PACKAGES, CausePackage } from "@/lib/constants";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/context/language-context";
+import { getDynamicCauses } from "@/app/actions/content-public";
 
 export function CausePackagesGrid({ limit }: { limit?: number }) {
-  const packages = limit ? CAUSE_PACKAGES.slice(0, limit) : CAUSE_PACKAGES;
+  const [added, setAdded] = useState<CausePackage[]>([]);
   const { lang } = useLanguage();
+
+  // Admin-added causes (newest first) sit above the built-in ones.
+  useEffect(() => {
+    getDynamicCauses().then(setAdded).catch(() => {});
+  }, []);
+
+  const all = [...added, ...CAUSE_PACKAGES];
+  const packages = limit ? all.slice(0, limit) : all;
 
   return (
     <div className="space-y-8" id="causes">
@@ -34,7 +44,7 @@ export function CausePackagesGrid({ limit }: { limit?: number }) {
         {limit && (
           <Button asChild variant="outline" className="border-emerald-800/30 text-emerald-900 dark:text-emerald-100 hover:bg-emerald-50 dark:hover:bg-emerald-950">
             <Link href="/#causes" className="flex items-center gap-2">
-              <span>{lang === "fr" ? "Voir les 6 Projets" : "View All 6 Appeals"}</span>
+              <span>{lang === "fr" ? `Voir les ${all.length} Projets` : `View All ${all.length} Appeals`}</span>
               <ArrowRight className="size-4" />
             </Link>
           </Button>

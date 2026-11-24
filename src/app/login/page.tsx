@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 export const metadata: Metadata = {
-  title: "Staff sign in",
+  title: "Admin sign in",
   robots: { index: false, follow: false },
 };
 
@@ -25,9 +25,9 @@ export default async function LoginPage({ searchParams }: PageProps<"/login">) {
           <div className="space-y-6 text-center">
             <Logo href="/" className="justify-center" />
             <div className="space-y-2">
-              <h1 className="text-2xl font-semibold">Staff sign in</h1>
+              <h1 className="text-2xl font-semibold">Admin sign in</h1>
               <p className="text-sm text-muted-foreground">
-                For the donation dashboard. Donors do not need an account.
+                For site administrators only. Donors do not need an account.
               </p>
             </div>
           </div>

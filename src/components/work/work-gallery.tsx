@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Camera, Video, Play, ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useLanguage } from "@/context/language-context";
 import { getGalleryMedia } from "@/app/actions";
+import { getWorkMedia } from "@/app/actions/content-public";
 import { Button } from "@/components/ui/button";
 
 interface MediaItem {
@@ -28,8 +29,12 @@ export function WorkGallery() {
 
   useEffect(() => {
     async function loadMedia() {
-      const data = await getGalleryMedia();
-      setMedia(data as MediaItem[]);
+      // Admin uploads come back newest-first, so they lead the gallery.
+      const [uploaded, data] = await Promise.all([
+        getWorkMedia().catch(() => []),
+        getGalleryMedia(),
+      ]);
+      setMedia([...uploaded, ...(data as MediaItem[])]);
       setLoading(false);
     }
     loadMedia();

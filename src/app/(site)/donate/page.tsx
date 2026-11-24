@@ -1,17 +1,23 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { BadgeCheck, PhoneCall, ShieldCheck, Heart } from "lucide-react";
 
-import { CAUSE_PACKAGES } from "@/lib/constants";
+import { CAUSE_PACKAGES, type CausePackage } from "@/lib/constants";
+import { getDynamicCauses } from "@/app/actions/content-public";
 import { BankAccountsHub } from "@/components/donate/bank-accounts";
 import { useLanguage } from "@/context/language-context";
 
 function DonateContent() {
   const searchParams = useSearchParams();
   const causeId = searchParams.get("cause") || "";
-  const selectedCause = CAUSE_PACKAGES.find((c) => c.id === causeId);
+  const [added, setAdded] = useState<CausePackage[]>([]);
+  useEffect(() => {
+    getDynamicCauses().then(setAdded).catch(() => {});
+  }, []);
+  const causes = [...added, ...CAUSE_PACKAGES];
+  const selectedCause = causes.find((c) => c.id === causeId);
   const { lang } = useLanguage();
 
   const assurances = [
@@ -71,7 +77,7 @@ function DonateContent() {
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 text-xs">
-          {CAUSE_PACKAGES.map((pkg) => {
+          {causes.map((pkg) => {
             const title = lang === "fr" ? pkg.titleFr : pkg.titleEn;
             const category = lang === "fr" ? pkg.categoryFr : pkg.categoryEn;
 

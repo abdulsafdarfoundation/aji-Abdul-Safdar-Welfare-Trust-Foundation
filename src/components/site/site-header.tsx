@@ -23,6 +23,8 @@ const NAV = [
   { href: "/", labelEn: "Home", labelFr: "Accueil" },
   { href: "/#causes", labelEn: "Causes", labelFr: "Projets" },
   { href: "/#gallery", labelEn: "Work", labelFr: "Actions" },
+  { href: "/updates", labelEn: "Updates", labelFr: "Actualités" },
+  { href: "/reviews", labelEn: "Reviews", labelFr: "Avis" },
   { href: "/donate", labelEn: "Donate", labelFr: "Don" },
   { href: "/about", labelEn: "About", labelFr: "À Propos" },
 ] as const;

@@ -65,6 +65,34 @@ export type Donation = {
   completed_at: string | null;
 };
 
+export type PostKind = "update" | "work" | "review";
+export type MediaType = "image" | "video";
+
+export type Post = {
+  id: string;
+  kind: PostKind;
+  title: string;
+  body: string;
+  media_url: string | null;
+  media_path: string | null;
+  media_type: MediaType | null;
+  created_at: string;
+};
+
+export type Cause = {
+  id: string;
+  title_en: string;
+  title_fr: string;
+  description_en: string;
+  description_fr: string;
+  category_en: string;
+  category_fr: string;
+  image_url: string | null;
+  image_path: string | null;
+  popular: boolean;
+  created_at: string;
+};
+
 /** A donation row with the campaign title resolved for table display. */
 export type DonationWithCampaign = Donation & {
   campaign_title: string | null;
@@ -106,6 +134,18 @@ export type Database = {
             referencedColumns: ["id"];
           },
         ];
+      };
+      posts: {
+        Row: Post;
+        Insert: Partial<Post> & Pick<Post, "kind">;
+        Update: Partial<Post>;
+        Relationships: [];
+      };
+      causes: {
+        Row: Cause;
+        Insert: Partial<Cause> & Pick<Cause, "title_en">;
+        Update: Partial<Cause>;
+        Relationships: [];
       };
     };
     Views: Record<never, never>;

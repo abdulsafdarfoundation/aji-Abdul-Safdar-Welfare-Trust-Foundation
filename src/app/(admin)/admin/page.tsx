@@ -1,6 +1,16 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { Banknote, HandCoins, Megaphone, Repeat, Users } from "lucide-react";
+import {
+  Banknote,
+  HandCoins,
+  HeartHandshake,
+  Images,
+  Megaphone,
+  Newspaper,
+  Repeat,
+  Star,
+  Users,
+} from "lucide-react";
 
 import { DonationStatusBadge } from "@/components/admin/donation-status-badge";
 import { DonationsChart } from "@/components/admin/donations-chart";
@@ -18,6 +28,13 @@ import {
   publicDonorName,
 } from "@/lib/format";
 
+const QUICK_ACTIONS = [
+  { href: "/admin/updates", label: "Post update", icon: Newspaper },
+  { href: "/admin/work", label: "Add work photos", icon: Images },
+  { href: "/admin/causes", label: "Add cause", icon: HeartHandshake },
+  { href: "/admin/reviews", label: "Add reviews", icon: Star },
+] as const;
+
 export default async function AdminOverviewPage() {
   return (
     <div className="space-y-8">
@@ -32,6 +49,19 @@ export default async function AdminOverviewPage() {
           <Link href="/admin/campaigns/new">New campaign</Link>
         </Button>
       </header>
+
+      <section aria-label="Manage website content" className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {QUICK_ACTIONS.map(({ href, label, icon: Icon }) => (
+          <Link
+            key={href}
+            href={href}
+            className="flex flex-col items-center justify-center gap-2 rounded-xl border bg-card p-4 text-center text-sm font-medium transition-colors hover:bg-muted"
+          >
+            <Icon className="size-6 text-primary" aria-hidden />
+            {label}
+          </Link>
+        ))}
+      </section>
 
       <Suspense fallback={<OverviewSkeleton />}>
         <OverviewContent />

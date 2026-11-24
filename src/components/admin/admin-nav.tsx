@@ -2,12 +2,25 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { HandCoins, LayoutDashboard, Megaphone, Settings } from "lucide-react";
+import {
+  HandCoins,
+  HeartHandshake,
+  Images,
+  LayoutDashboard,
+  Megaphone,
+  Newspaper,
+  Settings,
+  Star,
+} from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
 export const ADMIN_NAV = [
   { href: "/admin", label: "Overview", icon: LayoutDashboard, exact: true },
+  { href: "/admin/updates", label: "Updates", icon: Newspaper },
+  { href: "/admin/work", label: "Work done", icon: Images },
+  { href: "/admin/causes", label: "Causes", icon: HeartHandshake },
+  { href: "/admin/reviews", label: "Reviews", icon: Star },
   { href: "/admin/campaigns", label: "Campaigns", icon: Megaphone },
   { href: "/admin/donations", label: "Donations", icon: HandCoins },
   { href: "/admin/settings", label: "Settings", icon: Settings },
